@@ -20,6 +20,10 @@ services:
       - MYSQL_USER=drupal
       - MYSQL_PASSWORD=drupal
 
+  redis:
+    image: redis
+    network_mode: service:php
+
   mail:
     image: previousnext/mailhog:latest
     network_mode: service:php
