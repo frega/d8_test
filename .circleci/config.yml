@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Build Environment
           command: |
-            M8S_ENV_SITE_NAME=${CIRCLE_SHA1} m8s build --git-revision=${CIRCLE_SHA1} \
+            M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} m8s build --git-revision=${CIRCLE_SHA1} \
                       --name=${CIRCLE_BRANCH} \
                       --domains=${CIRCLE_BRANCH}.gcp.flink-solutions.de \
                       --basic-auth-user='test' \
