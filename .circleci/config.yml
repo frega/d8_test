@@ -13,7 +13,7 @@ jobs:
           command: |
             M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} m8s build --git-revision=${CIRCLE_SHA1} \
                       --name=${CIRCLE_BRANCH} \
-                      --domains=${CIRCLE_BRANCH}.gcp.flink-solutions.de \
+                      --domains=${CIRCLE_BRANCH}.m8s.gcp.frega.co \
                       --basic-auth-user='test' \
                       --basic-auth-pass='test'
       - run:
