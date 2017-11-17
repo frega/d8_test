@@ -14,8 +14,8 @@ jobs:
             M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} m8s build --git-revision=${CIRCLE_SHA1} \
                       --name=${CIRCLE_BRANCH} \
                       --domains=${CIRCLE_BRANCH}.m8s.gcp.frega.co \
-                      --basic-auth-user='test' \
-                      --basic-auth-pass='test'
+                      --basic-auth-user='${M8S_BASIC_AUTH_LOGIN}' \
+                      --basic-auth-pass='${M8S_BASIC_AUTH_PASSWORD}'
       - run:
           name: Build Step Example
           command: m8s step ${CIRCLE_BRANCH} app "echo Hello"
