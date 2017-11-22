@@ -11,14 +11,17 @@ jobs:
       - run:
           name: Build Environment
           command: |
-            M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} m8s build --git-revision=${CIRCLE_SHA1} \
+            M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} M8S_ENV_SITE_URI='${CIRCLE_BRANCH}.m8s.gcp.frega.co' m8s build --git-revision=${CIRCLE_SHA1} \
                       --name=${CIRCLE_BRANCH} \
                       --domains=${CIRCLE_BRANCH}.m8s.gcp.frega.co \
                       --basic-auth-user='${M8S_BASIC_AUTH_LOGIN}' \
                       --basic-auth-pass='${M8S_BASIC_AUTH_PASSWORD}'
       - run:
-          name: Build Step Example
-          command: m8s step ${CIRCLE_BRANCH} app "echo Hello"
+          name: Print one-time login link
+          command: m8s step ${CIRCLE_BRANCH} app "make login"
+      - run:
+          name: Try executing a step in redis container.
+          command: m8s step ${CIRCLE_BRANCH} redis "redis-cli -v"
 
 workflows:
   version: 2
