@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Build Environment
           command: |
-            M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} M8S_ENV_SITE_URI='${CIRCLE_BRANCH}.m8s.gcp.frega.co' m8s build --git-revision=${CIRCLE_SHA1} \
+            M8S_ENV_SITE_NAME=${CIRCLE_BRANCH} M8S_ENV_SITE_URI='http://${CIRCLE_BRANCH}.m8s.gcp.frega.co' m8s build --git-revision=${CIRCLE_SHA1} \
                       --name=${CIRCLE_BRANCH} \
                       --domains=${CIRCLE_BRANCH}.m8s.gcp.frega.co \
                       --basic-auth-user='${M8S_BASIC_AUTH_LOGIN}' \
