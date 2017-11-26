@@ -26,9 +26,6 @@ jobs:
   cypress:
     docker:
       - image: cypress/base:6
-      - environment:
-          ## this enables colors in the output
-          TERM: xterm
     steps:
       - checkout
       - restore_cache:
