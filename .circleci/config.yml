@@ -56,4 +56,3 @@ workflows:
   build:
     jobs:
       - build
-      - cypress
