@@ -17,7 +17,8 @@ install-coder:
 	composer require drupal/coder
 	./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 
-lint: coder
+lint: install-coder
+	phpcs --standard=phpcs.xml
 
 install: init
 	echo "Installing drupal site $(SITE_NAME) at $(SITE_URI)"
