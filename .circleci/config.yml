@@ -7,7 +7,9 @@ jobs:
       - checkout
       - run:
           name: Unit Tests
-          command: echo 'Run your unit tests here'
+          command: |
+            echo 'Run your unit tests here'
+            make unit-tests
       - run:
           name: Build Environment
           command: |
