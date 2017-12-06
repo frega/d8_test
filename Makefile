@@ -18,7 +18,7 @@ install-coder:
 	./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 
 lint: install-coder
-	phpcs --standard=phpcs.xml
+	./vendor/bin/phpcs --standard=phpcs.xml
 
 phpunit-test:
 	./vendor/bin/phpunit
