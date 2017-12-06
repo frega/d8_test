@@ -6,11 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Unit Tests
-          command: |
-            echo 'Run your unit tests here'
-            make unit-tests
-      - run:
           name: Build Environment
           command: |
             echo "Building m8s environment http://${M8S_BASIC_AUTH_LOGIN}:${M8S_BASIC_AUTH_PASSWORD}@${CIRCLE_BRANCH}.m8s.gcp.frega.co"
@@ -19,6 +14,9 @@ jobs:
                       --domains=${CIRCLE_BRANCH}.m8s.gcp.frega.co \
                       --basic-auth-user="${M8S_BASIC_AUTH_LOGIN}" \
                       --basic-auth-pass="${M8S_BASIC_AUTH_PASSWORD}"
+      - run:
+          name: Run unit tests (on system under test)
+          command: m8s step ${CIRCLE_BRANCH} app "make unit-tests"
       - run:
           name: Print one-time login link
           command: m8s step ${CIRCLE_BRANCH} app "make login"
