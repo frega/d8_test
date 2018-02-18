@@ -1,5 +1,8 @@
 version: 2
 jobs:
+  unit:
+    docker:
+      - image: previousnext/php7
   build:
     docker:
       - image: previousnext/m8s:latest
